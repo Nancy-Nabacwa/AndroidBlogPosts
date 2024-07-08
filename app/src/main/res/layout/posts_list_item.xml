@@ -3,104 +3,106 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     app:cardBackgroundColor="#FFFDD0"
-    android:layout_margin="20sp"
+    android:layout_margin="8dp"
     app:cardElevation="18sp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/tvPostPhrase"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="32dp"
-            tools:text="Phrase"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ivAuthorImage"
-            app:layout_constraintTop_toTopOf="parent" />
-
+        
         <TextView
             android:id="@+id/tvAuthorName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="32dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivAuthorImage"
+            app:layout_constraintStart_toEndOf="@+id/ivAuthorImage"
+            app:layout_constraintTop_toTopOf="@+id/ivAuthorImage"
             tools:text="AuthorName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/tvPostPhrase"
-            app:layout_constraintTop_toBottomOf="@+id/tvPostPhrase" />
-
+            />
+        
         <TextView
             android:id="@+id/tvPublishDate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="32dp"
-            tools:text="Publishing Date"
+            android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/tvAuthorName"
-            app:layout_constraintTop_toBottomOf="@+id/tvAuthorName" />
-
+            app:layout_constraintTop_toTopOf="@+id/tvAuthorName"
+            tools:text="25 July 2024"
+            />
+        
         <ImageView
             android:id="@+id/ivAuthorImage"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="24dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/person_svgrepo_com" />
-
+            app:srcCompat="@drawable/person_svgrepo_com"
+            />
+        
         <TextView
             android:id="@+id/tvMainPostTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
             android:textColor="#ffa368"
-            android:textSize="32sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvPublishDate"
-            tools:text="MainTitle" />
-
+            tools:text="MainTitle"
+            />
+        
         <ImageView
             android:id="@+id/ivPostImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvMainPostTitle"
-            app:srcCompat="@drawable/risotto_svgrepo_com__1_" />
-
+            app:srcCompat="@drawable/risotto_svgrepo_com__1_"
+            />
+        
         <TextView
             android:id="@+id/tvDescription"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:layout_marginEnd="32dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
             android:textSize="16dp"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/ivAuthorImage"
-            app:layout_constraintTop_toBottomOf="@+id/ivPostImage"
-            tools:text="Post Description 100 characters" />
-
+            app:layout_constraintTop_toBottomOf="@id/ivPostImage"
+            tools:text="Post Description 100 characters"
+            />
         <TextView
             android:id="@+id/tvLinkToPost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
             android:textColor="#ffa368"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/tvDescription"
             app:layout_constraintTop_toBottomOf="@+id/tvDescription"
-            tools:text="Link To Post" />
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="Link To Post"
+            />
+       
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
