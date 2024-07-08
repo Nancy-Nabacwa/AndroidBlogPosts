@@ -5,11 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.nabacwaakirachix.mypost.databinding.PostsListItemBinding
+import com.squareup.picasso.Picasso
 
 class PostAdapter (val postsList:List<Post>):RecyclerView.Adapter<PostsViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostsViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.posts_list_item,parent,false)
-        return PostsViewHolder(itemView)
+        val binding = PostsListItemBinding
+            .inflate(LayoutInflater.from(parent.context), parent, false)
+        return PostsViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
@@ -18,21 +21,19 @@ class PostAdapter (val postsList:List<Post>):RecyclerView.Adapter<PostsViewHolde
 
     override fun onBindViewHolder(holder: PostsViewHolder, position: Int) {
         val post = postsList[position]
-        holder.tvAuthorName.text = post.authorName
-        holder.tvCatchPhrase.text = post.catchPhrase
-        holder.tvPublishingDate.text = post.publishingDate
-        holder.tvPostTitle.text = post.postTitle
-        holder.tvPostDescription.text = post.postDescription
-        holder.tvLink.text = post.fullPostLink
+        holder.binding.tvAuthorName.text = post.authorName
+        holder.binding.tvPublishDate.text = post.publishingDate
+        holder.binding.tvMainPostTitle.text = post.postTitle
+        holder.binding.tvDescription.text = post.postDescription.substring(0,100)
+        /*Picasso.get()
+            .load(post.articlePhoto)
+            .placeholder(R.drawable.risotto_svgrepo_com__1_)
+            .resize(400,120)
+            .centerCrop()
+            .into(holder.binding.ivPostImage)*/
+        holder.binding.ivPostImage.setImageResource(R.drawable.risotto_svgrepo_com__1_)
     }
 
 }
 
-class PostsViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){
-    var tvAuthorName = itemView.findViewById<TextView>(R.id.tvAuthorName)
-    var tvCatchPhrase = itemView.findViewById<TextView>(R.id.tvPostPhrase)
-    var tvPublishingDate = itemView.findViewById<TextView>(R.id.tvPublishDate)
-    var tvPostTitle = itemView.findViewById<TextView>(R.id.tvMainPostTitle)
-    var tvPostDescription = itemView.findViewById<TextView>(R.id.tvDescription)
-    var tvLink = itemView.findViewById<TextView>(R.id.tvLinkToPost)
-}
+class PostsViewHolder(var binding: PostsListItemBinding):RecyclerView.ViewHolder(binding.root)
