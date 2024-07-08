@@ -16,7 +16,7 @@ class PostAdapter (val postsList:List<Post>):RecyclerView.Adapter<PostsViewHolde
     }
 
     override fun getItemCount(): Int {
-        return postsList.count()
+        return 9
     }
 
     override fun onBindViewHolder(holder: PostsViewHolder, position: Int) {
