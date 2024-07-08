@@ -25,13 +25,13 @@ class PostAdapter (val postsList:List<Post>):RecyclerView.Adapter<PostsViewHolde
         holder.binding.tvPublishDate.text = post.publishingDate
         holder.binding.tvMainPostTitle.text = post.postTitle
         holder.binding.tvDescription.text = post.postDescription.substring(0,100)
-        /*Picasso.get()
+        Picasso.get()
             .load(post.articlePhoto)
             .placeholder(R.drawable.risotto_svgrepo_com__1_)
             .resize(400,120)
             .centerCrop()
-            .into(holder.binding.ivPostImage)*/
-        holder.binding.ivPostImage.setImageResource(R.drawable.risotto_svgrepo_com__1_)
+            .into(holder.binding.ivPostImage)
+
     }
 
 }
